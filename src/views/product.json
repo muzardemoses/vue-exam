@@ -1,0 +1,19 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "title": "Car",
+        "price": 10000,
+        "images": ["https://dummyimage.com/300x200/000/fff"],
+        "discountPercentage": 20
+      },
+      {
+        "id": 2,
+        "title": "Bike",
+        "price": 5000,
+        "images": ["https://dummyimage.com/300x200/000/fff"],
+        "discountPercentage": null
+      }
+    ]
+  }
+  
