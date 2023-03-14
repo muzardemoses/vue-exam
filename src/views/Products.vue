@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-gray-50 py-24 px-28 md:py-16 md:px-4 min-h-screen">
+  <div class="bg-gray-50 py-24 pt-60 px-28  md:px-4 min-h-screen">
     <ul
-      class="text-2xl font-extrabold grid grid-cols-5 grid-flow-row gap-10 justify-items-center items-center gap-y-20"
+      class="text-2xl font-extrabold grid grid-cols-5 grid-flow-row gap-10 justify-items-center items-center gap-y-20 xl:grid-cols-3 lg:grid-cols-2 lg:gap-y-10 sm:grid-cols-1"
     >
-      <li v-for="product in products" :key="product.id" class="w-fit pt-20">
+      <li v-for="product in products" :key="product.id" class="w-fit pt-20 lg:pt-10">
         <router-link
           :to="{
             name: 'ProductDetails',
@@ -15,7 +15,7 @@
           }"
         >
           <div
-            class="flex flex-col w-60 justify-center gap-1 bg-white pb-3 rounded-lg relative hover:shadow-lg transition duration-500 ease-in-out"
+            class="flex flex-col w-60 justify-center gap-1 bg-white pb-3 rounded-lg relative hover:shadow-lg transition duration-500 ease-in-out sm:w-72"
           >
             <img
               :src="product.thumbnail"
@@ -30,7 +30,7 @@
               }}
             </h2>
             <p class="text-base font-semi-bold text-left px-3">
-              ${{ product.price }}
+              ${{ product.price.toLocaleString() }}
             </p>
             <p class="text-sm text-gray-600 font-normal text-left px-3">
               <del
@@ -38,7 +38,7 @@
                   (
                     product.price /
                     (1 - product.discountPercentage / 100)
-                  ).toFixed(2)
+                  ).toFixed(2).toLocaleString()
                 }}</del
               >
             </p>

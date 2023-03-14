@@ -3,7 +3,12 @@
     <nav>
       <Header />
     </nav>
-    <router-view />
+    <div
+    class="home-main"
+    >
+      <router-view />
+    </div>
+    
   </div>
 </template>
 
@@ -22,4 +27,6 @@ export default {
 div {
   font-family: "Inter", sans-serif;
 }
+
+
 </style>

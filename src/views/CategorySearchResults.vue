@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 py-24 px-28 md:py-16 md:px-4 min-h-screen">
+  <div class="bg-gray-50 py-24 pt-60 px-28 md:px-4  min-h-screen">
     <div class="pb-10">
       <h1 class="text-lg font-semibold mb-4 flex gap-2">
         <router-link to="/products">All Products</router-link> /
@@ -26,7 +26,7 @@
     </div>
     <div v-if="categorySearchResults && categorySearchResults.length > 0">
       <ul
-        class="text-2xl font-extrabold grid grid-cols-3 grid-flow-row gap-10 justify-around justify-items-center gap-y-20 w-8/12 mx-auto"
+        class="text-2xl font-extrabold grid grid-cols-3 grid-flow-row gap-10 justify-around justify-items-center gap-y-20 w-8/12 mx-auto xl:w-full lg:grid-cols-2 sm:grid-cols-1"
       >
         <li
           v-for="product in categorySearchResults"
@@ -44,7 +44,7 @@
           }"
         >
             <div
-              class="flex flex-col w-60 justify-center gap-1 bg-white pb-3 rounded-lg relative hover:shadow-lg transition duration-500 ease-in-out"
+              class="flex flex-col w-60 justify-center gap-1 bg-white pb-3 rounded-lg relative hover:shadow-lg transition duration-500 ease-in-out sm:w-72"
             >
               <img
                 :src="product.thumbnail"
@@ -60,7 +60,7 @@
                 }}
               </h2>
               <p class="text-base font-semi-bold text-left px-3">
-                ${{ product.price }}
+                ${{ product.price.toLocaleString() }}
               </p>
               <p class="text-sm text-gray-600 font-normal text-left px-3">
                 <del

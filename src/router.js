@@ -64,6 +64,14 @@ const router = new VueRouter({
         requiresAuth: true,
       },
     },
+    {
+        path: "/cart",
+        name: "cart",
+        component: () => import("@/views/Cart.vue"),
+        meta: {
+            requiresAuth: true,
+        },
+    },
 
     {
       path: "*",

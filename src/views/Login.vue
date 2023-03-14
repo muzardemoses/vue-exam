@@ -2,7 +2,7 @@
   <div>
     <form
       @submit.prevent="handleSubmit"
-      class="pt-24 h-screen flex flex-col items-center w-full"
+      class="pt-52 h-screen flex flex-col items-center w-full"
     >
       <img
         src="@/assets/fox-twoy.svg"
@@ -11,7 +11,7 @@
         width="80"
         class="rounded-lg"
       />
-      <h3 class="font-semibold text-3xl text-gray-900 mt-1 mb-3">
+      <h3 class="font-semibold text-3xl text-gray-900 mt-1 mb-3 sm:font-medium sm:text-2xl">
         Log in to your account
       </h3>
       <p class="text-base font-normal text-gray-600">
@@ -70,7 +70,7 @@
           </label>
           <p class="text-sm font-normal text-gray-600">
             <RouterLink
-              to="/forgot-password"
+              to="/"
               class="text-purple-700 font-semibold"
               >Forgot password</RouterLink
             >
@@ -120,10 +120,12 @@ export default {
         .then(() => {
           // Redirect user to products page after successful login
           this.$router.push("/products");
+          this.$toast.success("Login successful!");
         })
         .catch((error) => {
           console.log("Error:", error);
           // Handle error, e.g. display error message to user
+            this.$toast.error("Login failed!");
         });
     },
   },
@@ -152,5 +154,10 @@ export default {
 <style scoped>
 .w360 {
   width: 360px;
+}
+@media (max-width: 468px) {
+  .w360 {
+    width: 340px;
+  }
 }
 </style>
