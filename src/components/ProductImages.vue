@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col gap-6 items-center justify-center mb-8 xl:pl-6">
+  <div class="flex flex-col gap-6 items-center justify-center mb-8 xl:pl-6 sm:pl-0">
     <div class="flex gap-16 items-center">
       <button
-        class="w-fit h-fit rounded-full bg-white  border-gray-50 border xl:hidden lg:block"
+        class="w-fit h-fit rounded-full  bg-gray-700 hover:bg-gray-800 transition duration-500 ease-in-out xl:hidden lg:block sm:hidden"
         @click="prevImage"
       >
-        <img src="@/assets/chevron-left.png" alt="" class="h-16 w-16" />
+        <img src="@/assets/chevron-left.png" alt="" class="h-16 w-16 " />
       </button>
       <div class="h400 w500">
         <img
@@ -16,17 +16,17 @@
       </div>
 
       <button
-        class="w-fit h-fit rounded-full bg-white border-gray-50 border xl:hidden lg:block"
+        class="w-fit h-fit rounded-full bg-gray-700 hover:bg-gray-800 transition duration-500 ease-in-out xl:hidden lg:block sm:hidden"
         @click="nextImage"
       >
         <img src="@/assets/chevron-right.png" alt="" class="h-16 w-16" />
       </button>
     </div>
-    <div class="flex flex-wrap justify-center gap-3">
+    <div class="flex flex-wrap justify-center gap-3 sm:gap-2">
       <div
         v-for="(image, index) in images"
         :key="index"
-        class="w-16 h-16 relative transition duration-500 ease-in-out"
+        class="w-16 h-16 relative transition duration-500 ease-in-out sm:w-14 sm:h-14"
       >
         <img
           :src="image"
@@ -60,6 +60,15 @@ button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
 
+}
+
+@media (max-width: 639px) {
+  .h400 {
+    height: 300px;
+  }
+  .w500 {
+    width: 300px;
+  }
 }
 </style>
 

@@ -1,12 +1,11 @@
 <template>
-  <div class="fixed top-0 left-0 w-full z-20 xl:bg-gray-900 pb-10 "
-  >
+  <div class="fixed top-0 left-0 w-full z-20 xl:bg-gray-900 pb-10">
     <div
       class="bg-gray-900 p-4 flex flex-row px-28 justify-between items-center transition duration-500 ease-in-out xl:px-20 md:px-6"
     >
       <div class="xl:flex xl:items-center xl:gap-3 xl:z-50">
         <button
-        v-if="isLoggedIn"
+          v-if="isLoggedIn"
           class="hamburger hidden xl:block focus:outline-none z-10 xl:mt-2 xl:z-40"
           :class="{ open: isSideMenuOpen }"
           @click="toggleSideMenu"
@@ -22,7 +21,10 @@
           ></span>
         </button>
         <router-link to="/">
-          <h1 class="text-2xl font-semibold text-sky-100 xl:z-40 md:text-xl md:font-medium">
+          <h1
+            class="text-2xl font-semibold text-sky-100 xl:z-40 md:text-xl md:font-medium"
+            @click="closeSideMenu"
+          >
             MuzardeStore
           </h1>
         </router-link>
@@ -61,7 +63,7 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="relative">
         <div class="flex flex-row gap-6 justify-center items-center md:gap-2">
           <router-link
             v-if="isLoggedIn"
@@ -74,8 +76,7 @@
               class="h-10 w-10 transition duration-500 ease-in-out md:h-8 md:w-8"
             />
             <span
-              class="text-sm font-bold text-yellow-500 absolute top-1 z-
-               bg-gray-100 px-2 py-1 rounded-full left-1"
+              class="text-sm font-bold text-yellow-500 absolute top-1 z- bg-gray-100 px-2 py-1 rounded-full left-1"
             >
               <!-- {{ cartItems.length }} -->
               <span v-if="totalItems > 0">{{ totalItems }}</span>
@@ -83,10 +84,12 @@
           </router-link>
 
           <div
-            class="flex flex-row cursor-pointer items-center gap-2 transition duration-500 ease-in-out "
+            class="flex flex-row cursor-pointer items-center gap-2 transition duration-500 ease-in-out"
             @click="toggleDropdown"
           >
-            <h2 class="text-2xl font-semibold text-sky-100 md:font-medium md:text-xl md:hidden">
+            <h2
+              class="text-2xl font-semibold text-sky-100 md:font-medium md:text-xl md:hidden"
+            >
               {{ displayEmail }}
             </h2>
             <img
@@ -105,7 +108,7 @@
         </div>
 
         <ul
-          class="bg-white text-black rounded-lg shadow-lg min-w-fit max-w-sm absolute right-32 top-24 p-5 w-40 transition duration-500 ease-in-out"
+          class="bg-white text-black rounded-lg shadow-lg min-w-fit max-w-sm absolute right-0 top-16 p-5 w-40 transition duration-500 ease-in-out z-10 sm:w-36 sm:p-3 sm:top-14"
           v-if="dropdown"
         >
           <li
@@ -113,12 +116,12 @@
             class="text-lg flex flex-col items-center justify-center cursor-pointer gap-1 no-underline w-fit"
           >
             <h4
-              class="text-gray-900 font-semibold text-base flex flex-row items-center justify-center cursor-pointer gap-1 no-underline"
+              class="text-gray-900 font-semibold text-base flex flex-row items-center justify-center cursor-pointer gap-1 no-underline sm:text-sm"
             >
               {{ user.email }}
             </h4>
             <button
-              class="text-green-500 font-bold text-lg flex flex-row items-center justify-center cursor-pointer gap-1 no-underline hover:text-green-300 hover:translate-x-2 transition duration-500 ease-in-out"
+              class="text-green-500 font-bold text-lg flex flex-row items-center justify-center cursor-pointer gap-1 no-underline hover:text-green-300 hover:translate-x-2 transition duration-500 ease-in-out sm:text-base"
               @click="logout()"
             >
               Log out
@@ -140,7 +143,7 @@
       </div>
     </div>
     <p class="bg-gray-700 h-px xl:bg-gray-900 xl:h-0 xl:w-2 xl:hidden"></p>
-    <div class="hidden xl:block w-full bg-gray-900 xl:border-none " >
+    <div class="hidden xl:block w-full bg-gray-900 xl:border-none">
       <ul
         class="flex flex-row justify-between items-center gap-9 font-semibold text-base text-gray-100 w-full"
       >
@@ -167,7 +170,7 @@
               type="text"
               v-model="searchTerm"
               placeholder="Search for products, brands and categories..."
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 transition duration-500 ease-in-out "
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 transition duration-500 ease-in-out"
               @keydown.enter="searchProducts"
             />
           </router-link>
@@ -216,13 +219,22 @@
     </div>
     <p class="bg-gray-300 h-px xl:hidden"></p>
     <aside :class="{ open: isSideMenuOpen }" v-if="isLoggedIn">
-      <div class="hidden xl:block bg-gray-900 w-9/12 pt-24 " v-if="isLoggedIn">
+      <div class="hidden xl:block bg-gray-900 w-9/12 pt-24" v-if="isLoggedIn">
         <p class="bg-gray-600 h-px"></p>
-        <h2 class="text-gray-100 font-bold text-2xl text-left ml-8 mt-5 mb-7 md:font-semibold md:text-xl md:mt-4">
-          Products
+        <h2
+          class="text-gray-100 font-bold text-2xl text-left ml-8 mt-5 mb-7 md:font-semibold md:text-xl md:mt-4"
+          @click="closeSideMenu"
+        >
+          <router-link to="/products" >
+            Products
+          </router-link>
         </h2>
         <div class="bg-gray-50 py-6 pl-8 flex flex-col gap-4 menu">
-          <h2 class="text-gray-900 font-bold text-2xl text-left md:font-semibold md:text-xl">Categories</h2>
+          <h2
+            class="text-gray-900 font-bold text-2xl text-left md:font-semibold md:text-xl"
+          >
+            Categories
+          </h2>
           <p class="bg-gray-800 h-1 w-10"></p>
           <ul :key="index" v-for="(category, index) in categories">
             <li @click="selectCategory(category)" class="w-fit capitalize">
@@ -311,11 +323,13 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("logout", { router: this.router }).then(() => {
+        this.dropdown = false;
         this.$router.push("/login");
       });
     },
     toggleDropdown() {
-      this.dropdown = !this.dropdown;
+       this.isLoggedIn ? (this.dropdown = !this.dropdown) : this.$router.push("/login");
+    //   this.dropdown = !this.dropdown;
     },
     toggleSideMenu() {
       this.isSideMenuOpen = !this.isSideMenuOpen;
@@ -345,6 +359,9 @@ export default {
     },
     selectCategory(category) {
       this.searchQuery = category;
+      if (this.isSideMenuOpen) {
+        this.toggleSideMenu();
+      }
       // Navigate to the selected category page using Vue router
       this.$router.push({
         name: "CategorySearch",
@@ -352,6 +369,9 @@ export default {
       });
       //window.location.reload();
       this.search();
+    },
+    closeSideMenu() {
+      this.isSideMenuOpen = false;
     },
 
     // searchProducts() {
@@ -432,7 +452,7 @@ aside {
   transition: transform 0.3s ease-in-out;
   border: none;
   background-color: rgba(0, 0, 0, 0.4);
-  padding-right: 100px;
+  padding-right: 80px;
 }
 
 aside.open {
@@ -445,7 +465,7 @@ aside.open {
 }
 
 body.is-side-menu-open {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 @media (max-width: 600px) {

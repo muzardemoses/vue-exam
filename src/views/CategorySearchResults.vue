@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-gray-50 py-24 pt-60 px-28 md:px-4  min-h-screen">
-    <div class="pb-10">
-      <h1 class="text-lg font-semibold mb-4 flex gap-2">
+  <div class="bg-gray-50 py-24 pt-60 px-28 md:px-4  min-h-screen sm:pt-52">
+    <div class="pb-10 sm:pb-1">
+      <h1 class="text-lg font-semibold mb-4 flex gap-2 sm:text-base sm:font-medium sm:gap-1">
         <router-link to="/products">All Products</router-link> /
-        <span class="text-lg font-semibold capitalize">
+        <span class="text-lg font-semibold capitalize sm:text-base sm:font-medium">
             Category
           </span
         > /
@@ -11,11 +11,13 @@
           {{ $route.params.categoryName }}</span
         >
       </h1>
-      <div class="flex justify-between items-center w-full mb-6">
-        <h1 class="text-2xl font-semibold mb-4 capitalize">
+      <div class="flex justify-between items-center w-full mb-6 ">
+        <h1 class="text-2xl font-semibold mb-4 capitalize sm:text-lg sm:mb-3">
            {{ $route.params.categoryName }}
         </h1>
-        <p>
+        <p
+        class="sm:text-xs sm:mb-3"
+        >
           {{
             categorySearchResults && categorySearchResults.length > 0
               ? categorySearchResults.length + " results found"

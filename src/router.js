@@ -65,12 +65,12 @@ const router = new VueRouter({
       },
     },
     {
-        path: "/cart",
-        name: "cart",
-        component: () => import("@/views/Cart.vue"),
-        meta: {
-            requiresAuth: true,
-        },
+      path: "/cart",
+      name: "cart",
+      component: () => import("@/views/Cart.vue"),
+      meta: {
+        requiresAuth: true,
+      },
     },
 
     {
@@ -110,5 +110,7 @@ store.subscribe((mutation) => {
     localStorage.setItem("authToken", mutation.payload);
   }
 });
+
+
 
 export default router;

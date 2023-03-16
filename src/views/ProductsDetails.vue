@@ -1,12 +1,12 @@
 <template>
-  <div v-if="product" class="bg-gray-50 pt-60  md:px-4 pb-20">
-    <div class="pb-10 px-28 lg:px-12">
-      <h1 class="text-lg font-semibold mb-4 flex gap-2 items-center">
+  <div v-if="product" class="bg-gray-50 pt-60  md:px-4 pb-20 sm:pt-48 sm:pb-12">
+    <div class="pb-10 px-28 lg:px-12 sm:px-2 sm:pb-3">
+      <h1 class="text-lg font-semibold mb-4 flex gap-2 items-center sm:text-sm sm:mb-1">
         <router-link to="/">Home</router-link>
         <img src="@/assets/right-arrow.png" class="w-4 h-4" alt="right-arrow" />
         <router-link
           :to="`/category/${product.category}`"
-          class="text-lg font-semibold capitalize"
+          class="text-lg font-semibold capitalize sm:text-sm"
         >
           {{ product.category }}
         </router-link>
@@ -21,12 +21,12 @@
       </h1> -->
     </div>
     <div
-      class="bg-white py-10 flex justify-center items-center gap-20  rounded-lg lg:flex-col"
+      class="bg-white py-10 flex justify-center items-center gap-20  rounded-lg lg:flex-col sm:gap-5 "
     >
       <div>
         <ProductImages :images="product.images" />
       </div>
-      <div class="text-left flex flex-col gap-3 w500">
+      <div class="text-left flex flex-col gap-3 w500 sm:px-5">
         <h1 class="text-base font-bold uppercase text-sky-500">
           {{ product.brand }}
         </h1>
@@ -131,5 +131,11 @@ export default {
 
 .w500 {
   width: 500px;
+}
+
+@media (max-width: 639px) {
+  .w500 {
+    width: 100%;
+  }
 }
 </style>

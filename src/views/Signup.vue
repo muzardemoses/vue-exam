@@ -5,10 +5,10 @@
       class="pt-52 h-screen flex flex-col items-center w-full"
     >
       <img
-        src="@/assets/fox-twoy.svg"
+        src="@/assets/logo.png"
         alt="logo"
-        height="80"
-        width="80"
+        height="40"
+        width="40"
         class="rounded-lg"
       />
       <h3 class="font-semibold text-3xl text-gray-900 mt-1 mb-3 sm:font-medium sm:text-2xl">

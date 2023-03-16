@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-4 items-center pt-10 xl:flex-col xl:pr-6">
+  <div class="flex gap-4 items-center pt-10 xl:flex-col xl:pr-6 sm:pr-0 sm:pt-5">
     <button
       class="bg-yellow-400 text-white py-2 px-4 w-60 rounded-lg font-medium hover:bg-yellow-500 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-md flex items-center gap-2 justify-center xl:w-full"
       @click="addToCart"
@@ -12,11 +12,15 @@
       Add to Cart
     </button>
     <div class="quantity-container">
-      <button class="quantity-button py-2 px-4" @click="decrementQuantity">
+      <button class="quantity-button py-2 px-4 disabled:opacity-50 disabled:cursor-not-allowed " @click="decrementQuantity"
+      :disabled="quantity === 1"
+      >
         -
       </button>
       <span class="quantity">{{ quantity }}</span>
-      <button class="quantity-button py-2 px-4" @click="incrementQuantity">
+      <button class="quantity-button py-2 px-4 disabled:opacity-50 disabled:cursor-not-allowed " @click="incrementQuantity"
+      :disabled="quantity === product.stock"
+      >
         +
       </button>
     </div>
@@ -54,6 +58,7 @@ export default {
         discountPercentage: this.product.discountPercentage,
         amountSaved: this.amountSaved,
         originalPrice: this.originalPrice,
+        category: this.product.category,
       };
       this.$store.dispatch("addToCart", cartItem);
       this.$toast.info(`Proceed to checkout to buy ${this.product.title} `);

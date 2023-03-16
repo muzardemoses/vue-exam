@@ -1,17 +1,19 @@
 <template>
-  <div class="bg-gray-50 py-24 pt-60 px-28  md:px-4 min-h-screen">
+  <div class="bg-gray-50 py-24 pt-60 px-28  md:px-4 min-h-screen sm:pt-52">
     <div
-    class="pb-10 "
+    class="pb-10  sm:pb-1"
     >
-      <h1 class="text-lg font-semibold mb-4">
+      <h1 class="text-lg font-semibold mb-4 sm:text-base">
         <router-link to="/products">All Products</router-link> /
         <span class="text-purple-600 capitalize"> {{ $route.query.q }}</span>
       </h1>
       <div class="flex justify-between items-center w-full mb-6">
-        <h1 class="text-2xl font-semibold mb-4 capitalize">
+        <h1 class="text-2xl font-semibold mb-4 capitalize sm:text-lg sm:mb-3">
            Results for {{ $route.query.q }}
         </h1>
-        <p>
+        <p
+        class="sm:text-xs sm:mb-3"
+        >
           {{
             searchResults && searchResults.length > 0
               ? searchResults.length + " results found"
