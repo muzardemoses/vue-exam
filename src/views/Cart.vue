@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white pt-60 px-28 lg:px-8 md:px-4 pb-20 sm:px-1 sm:pt-52">
+  <div class="bg-white pt-60 px-28 min-h-screen lg:px-8 md:px-4 pb-20 sm:px-1 sm:pt-52">
     <div
       class="bg-gray-50 py-10 px-20 rounded-lg flex flex-col lg:px-6 sm:px-3 sm:py-6"
     >
