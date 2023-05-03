@@ -108,8 +108,8 @@ export default {
   },
   data() {
     return {
-      email: "",
-      password: "",
+      email: "example@gmail.com",
+      password: "Example123!",
     };
   },
   methods: {

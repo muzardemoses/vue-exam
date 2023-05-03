@@ -132,9 +132,9 @@ export default {
   },
   data() {
     return {
-      email: "",
-      password: "",
-      confirmPassword: "",
+      email: "example@gmail.com",
+      password: "Example123!",
+      confirmPassword: "Example123!",
     };
   },
   methods: {
